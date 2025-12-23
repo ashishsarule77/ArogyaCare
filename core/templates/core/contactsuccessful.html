@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Sent Successfully</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e9f7ef, #f4f6f9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .success-box {
+            background: #ffffff;
+            padding: 45px 35px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+            max-width: 420px;
+            width: 90%;
+        }
+
+        .success-icon {
+            font-size: 60px;
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+
+        .success-box h1 {
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+
+        .success-box p {
+            color: #555;
+            font-size: 16px;
+            margin: 8px 0;
+        }
+
+        .success-box a {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: #007bff;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: background 0.3s ease;
+        }
+
+        .success-box a:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <div class="success-box">
+            <div class="success-icon">✅</div>
+            <h1>Thank You!</h1>
+
+            <p>
+                {% if name %}
+                Dear <strong>{{ name }}</strong>, your message has been sent successfully.
+                {% else %}
+                Your message has been sent successfully.
+                {% endif %}
+            </p>
+
+            <p>We'll get back to you shortly.</p>
+
+            <a href="{% url 'home' %}">Go to Home</a>
+        </div>
+    </form>
+
+</body>
+
+</html>

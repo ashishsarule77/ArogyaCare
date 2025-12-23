@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Booked Successfully</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd, #f9fbff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .success-card {
+            background: #ffffff;
+            padding: 45px 40px;
+            max-width: 480px;
+            width: 90%;
+            text-align: center;
+            border-radius: 14px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-icon {
+            font-size: 70px;
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+
+        .success-card h1 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            font-size: 30px;
+        }
+
+        .success-card p {
+            color: #555;
+            font-size: 16px;
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #1565c0;
+            font-weight: 600;
+        }
+
+        .btn-group {
+            margin-top: 28px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 22px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-home {
+            background: #1565c0;
+            color: #ffffff;
+        }
+
+        .btn-home:hover {
+            background: #0d47a1;
+        }
+
+        .btn-appointment {
+            background: #e8f0fe;
+            color: #1565c0;
+            border: 1px solid #cfd8dc;
+        }
+
+        .btn-appointment:hover {
+            background: #dbe7fd;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <form action="" method="post">
+        {% csrf_token %} -->
+
+
+        <div class="success-card">
+            <div class="success-icon">✅</div>
+
+            <h1>Appointment Confirmed!</h1>
+
+            <p>
+                Thank you <span class="highlight">{{user_name}}</span>,
+                your appointment has been successfully booked.
+            </p>
+
+            <p>
+                Our medical team will contact you shortly with further details.
+            </p>
+
+            <div class="btn-group">
+                <a href="{% url 'home' %}" class="btn btn-home">Go to Home</a>
+                <a href="{% url 'appoinment' %}" class="btn btn-appointment">Book Another</a>
+            </div>
+        </div>
+    <!-- </form> -->
+
+</body>
+
+</html>
