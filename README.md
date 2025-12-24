@@ -17,7 +17,7 @@ Django admin panel.
 
 ## 🛠 Tech Stack
 - **Backend:** Python, Django
-- **Database:** SQLite / MySQL
+- **Database:** MySQL
 - **Frontend:** HTML, CSS, Bootstrap, JavaScript
 - **Version Control:** Git & GitHub
 
