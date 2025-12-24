@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from core.models import contactModel,Appointment
+from core.models import contactModel,Appointment,subscribefooter,singleblogModel
 from django.http import HttpResponse
 
 
@@ -84,3 +84,21 @@ def view_appoinment(request):
         )
         return render(request,"core/appoinment_successfull.html")
     return render(request,"core/appoinment.html")
+
+
+def view_subscribefooter(request):
+    if request.method =="POST":
+        subscribe= subscribefooter.objects.create(
+            email=request.POST.get("email","")
+        )
+        return render(request,"core/emailsuccessfull.html",{"emailname":subscribe.email})
+
+# single blog page
+def view_singleblog(request):
+    if request.method =="POST":
+        blog =singleblogModel.objects.create(
+            name=request.POST.get("name",""),
+            email=request.POST.get("email",""),
+            message=request.POST.get("message","")
+        )
+        return render(request,"core/singleblogsuccessfull.html",{"blogname":blog.name})
