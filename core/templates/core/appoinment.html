@@ -43,6 +43,17 @@
 						<p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui
 							velit . Iste
 							dolorum atque similique praesentium soluta.</p>
+						{% if errors %}
+						<div style="background-color: #f8d7da; color: #721c24; padding: 15px; border-radius: 8px; margin-bottom:
+                            20px; border: 1px solid #f5c6cb; animation: slideDown 0.5s ease;">
+							<strong>please fix the following error:</strong>
+							<ul style="margin: 10px 0 • 20px;">
+								{% for error in errors %}
+								<li>{{error}}</li>
+								{% endfor %}
+							</ul>
+						</div>
+						{% endif %}
 						<div class="row">
 							<div class="col-lg-6">
 								<div class="form-group">
@@ -70,33 +81,33 @@
 
 							<div class="col-lg-6">
 								<div class="form-group">
-									<input name="date" id="date" type="date" class="form-control"
+									<input name="date" id="date" type="date" value="{{ appointment_date }}" class="form-control"
 										placeholder="dd/mm/yyyy">
 								</div>
 							</div>
 
 							<div class="col-lg-6">
 								<div class="form-group">
-									<input name="time" id="time" type="time" class="form-control" placeholder="Time">
+									<input name="time" id="time" type="time" value="{{ appointment_time }}" class="form-control" placeholder="Time">
 								</div>
 							</div>
 							<div class="col-lg-6">
 								<div class="form-group">
-									<input name="name" id="name" type="text" class="form-control"
+									<input name="name" id="name" value="{{ full_name }}" type="text" class="form-control"
 										placeholder="Full Name">
 								</div>
 							</div>
 
 							<div class="col-lg-6">
 								<div class="form-group">
-									<input name="phone" id="phone" type="Number" class="form-control"
+									<input name="phone" id="phone" value="{{ phone_number }}" type="Number" class="form-control"
 										placeholder="Phone Number">
 								</div>
 							</div>
 						</div>
 						<div class="form-group-2 mb-4">
-							<textarea name="message" id="message" class="form-control" rows="6"
-								placeholder="Your Message"></textarea>
+							<textarea name="message" id="message"  class="form-control" rows="6"
+								placeholder="Your Message">{{ message }}</textarea>
 						</div>
 
 						<div class="form-group-2 mb-4">

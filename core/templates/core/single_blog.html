@@ -162,25 +162,30 @@
 
                     <div class="col-lg-12">
                         <form action="{% url 'singleblogmessage' %}" method="post" id="comment-form">
+                            {% if error %}
+                            <div class="alert alert-danger">
+                                {{error}}
+                            </div>
+                            {% endif %}
                             {% csrf_token %}
                             <h4 class="mb-4">Write a comment</h4>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input class="form-control" type="text" name="name" id="name"
+                                        <input class="form-control" required type="text" name="name" id="name"
                                             placeholder="Name:">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input class="form-control" type="text" name="email" id="mail"
+                                        <input class="form-control" required type="text" name="email" id="mail"
                                             placeholder="Email:">
                                     </div>
                                 </div>
                             </div>
 
 
-                            <textarea class="form-control mb-4" name="message" id="comment" cols="30" rows="5"
+                            <textarea class="form-control mb-4" required name="message" id="comment" cols="30" rows="5"
                                 placeholder="Comment"></textarea>
 
                             <input class="btn btn-main-2 btn-round-full" type="submit" id="submit_contact" value="Submit Message">
